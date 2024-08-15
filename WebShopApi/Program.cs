@@ -18,6 +18,9 @@ namespace WebShopApi
 
             builder.Services.ConfigConnectionService();
             builder.Host.ConfigDatabaseConnection();
+            builder.Services.ConfigAppDbContext();
+
+            builder.Services.ConfigPersonsDI();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

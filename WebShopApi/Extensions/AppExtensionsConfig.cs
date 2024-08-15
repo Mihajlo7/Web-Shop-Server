@@ -1,4 +1,6 @@
-﻿using ConnectionService;
+﻿using App.Infrastructure;
+using ConnectionService;
+using Person.Mediator;
 
 namespace WebShopApi.Extensions
 {
@@ -16,6 +18,17 @@ namespace WebShopApi.Extensions
         public static IServiceCollection ConfigConnectionService(this IServiceCollection services)
         {
             services.AddSingleton<IConnectionService,ConnectionServiceImp>();
+            return services;
+        }
+        public static IServiceCollection ConfigAppDbContext(this IServiceCollection services)
+        {
+            services.AddScoped<AppDbContext>();
+            return services;
+        }
+        public static IServiceCollection ConfigPersonsDI(this IServiceCollection services)
+        {
+            services.AddPersonMediator();
+            services.AddPersonRepository();
             return services;
         }
     }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Persons.Domain.Domain;
+using Person.Core.Domain;
 
 namespace App.Infrastructure.Configuration
 {

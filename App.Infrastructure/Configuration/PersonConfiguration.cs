@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Persons.Domain.Domain;
+using Person.Core.Domain;
 
 namespace App.Infrastructure.Configuration
 {
-    internal class PersonConfiguration : IEntityTypeConfiguration<Person>
+    internal class PersonConfiguration : IEntityTypeConfiguration<Person.Core.Domain.Person>
     {
-        public void Configure(EntityTypeBuilder<Person> builder)
+        public void Configure(EntityTypeBuilder<Person.Core.Domain.Person> builder)
         {
             // Added config for Password
             builder.HasMany(person => person.Passwords)

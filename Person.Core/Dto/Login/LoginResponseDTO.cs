@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Person.Core.Dto.Registration.Response
+namespace Person.Core.Dto.Login
 {
-    public class RegisterResponseDTO
+    internal class LoginResponseDTO
     {
+        public bool Success { get; set; }
         public string Message { get; set; }
-        public Guid Id { get; set; }
     }
 }
