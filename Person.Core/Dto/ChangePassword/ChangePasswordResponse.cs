@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Person.Core.Dto.Login
+namespace Person.Core.Dto.ChangePassword
 {
-    public class LoginResponseDTO
+    public class ChangePasswordResponse
     {
-        public bool Success { get; set; }
+        public Guid Id { get; set; }
         public string Message { get; set; }
     }
 }

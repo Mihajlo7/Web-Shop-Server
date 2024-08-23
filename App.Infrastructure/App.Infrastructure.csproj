@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConnectionService\ConnectionService.csproj" />
+    <ProjectReference Include="..\Generic.UnitOfWork\Generic.UnitOfWork.csproj" />
     <ProjectReference Include="..\Person.Core\Person.Core.csproj" />
   </ItemGroup>
 

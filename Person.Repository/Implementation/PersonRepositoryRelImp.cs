@@ -39,5 +39,24 @@ namespace Person.Repository.Implementation
         {
             return await _context.Passwords.FirstOrDefaultAsync(pass => pass.Id == id);
         }
+
+        public async Task<Core.Domain.Person> UpdatePerson(Core.Domain.Person person)
+        {
+            _context.Persons.Update(person);
+            await _context.SaveChangesAsync();
+            return person;
+        }
+
+        public async Task<Password> ChangePassword(Guid personId, Password password)
+        {
+            var activePassword=  await _context.Passwords.FirstOrDefaultAsync(password=> password.PersonId == personId && password.IsActive==true);
+
+            activePassword.IsActive=false;
+            activePassword.UpdatedAt= DateTime.Now;
+
+            _context.Passwords.Add(password);
+            await _context.SaveChangesAsync();
+            return password;
+        }
     }
 }

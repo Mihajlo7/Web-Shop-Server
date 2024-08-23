@@ -20,9 +20,9 @@ namespace Person.Helpers.Mappers
             person.Telephone = registerPersonDTO.Telephone;
             person.EmailAddress=registerPersonDTO.EmailAddress.toDomain();
 
-            person.CreditCards = registerPersonDTO.CreditCard.CreateCreditCard();
-            person.Adresses = registerPersonDTO.Address.CreateAddress(country);
-            person.Passwords = registerPersonDTO.Password.GeneratePassword();
+            person.CreditCards = [registerPersonDTO.CreditCard.CreateCreditCard()];
+            person.Adresses = [registerPersonDTO.Address.CreateAddress(country)];
+            person.Passwords = [registerPersonDTO.Password.GeneratePassword()];
 
             person.CreatedAt= DateTime.Now;
             person.UpdatedAt= DateTime.Now;
@@ -31,7 +31,7 @@ namespace Person.Helpers.Mappers
             
         }
         
-        public static ICollection<BussinessEntitityCreditCard> CreateCreditCard(this CreditCardDTO creditCardDTO)
+        public static BussinessEntitityCreditCard CreateCreditCard(this CreditCardDTO creditCardDTO)
         {
             BussinessEntitityCreditCard creditCardBuss = new BussinessEntitityCreditCard()
             {
@@ -40,10 +40,10 @@ namespace Person.Helpers.Mappers
                 UpdatedAt=DateTime.Now,
             };
             
-            return [creditCardBuss];
+            return creditCardBuss;
         }
 
-        public static ICollection<BusinessEntityAdress> CreateAddress(this AddressDTO addressDTO,Country country)
+        public static BusinessEntityAdress CreateAddress(this AddressDTO addressDTO,Country country)
         {
             BusinessEntityAdress businessEntityAdress = new BusinessEntityAdress
             {
@@ -51,10 +51,10 @@ namespace Person.Helpers.Mappers
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
-            return [businessEntityAdress];
+            return businessEntityAdress;
         }
 
-        public static ICollection<Password> GeneratePassword(this PasswordDTO passwordDTO)
+        public static Password GeneratePassword(this PasswordDTO passwordDTO)
         {
             var hash = PasswordMaker.PasswordMaker.HashPassword(passwordDTO.NewPassword, out var salt);
             Password createdPassword =
@@ -66,7 +66,7 @@ namespace Person.Helpers.Mappers
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
                 };
-            return [createdPassword];
+            return createdPassword;
         }
     }
 }

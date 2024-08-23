@@ -1,5 +1,6 @@
 ﻿using Castle.Core.Configuration;
 using ConnectionService;
+using Generic.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Person.Core.Domain;
