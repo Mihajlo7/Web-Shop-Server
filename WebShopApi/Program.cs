@@ -1,4 +1,5 @@
 
+using App.Infrastructure;
 using WebShopApi.Extensions;
 
 namespace WebShopApi
@@ -18,7 +19,8 @@ namespace WebShopApi
 
             builder.Services.ConfigConnectionService();
             builder.Host.ConfigDatabaseConnection();
-            builder.Services.ConfigAppDbContext();
+            //builder.Services.ConfigAppDbContext();
+            builder.Services.AddDIDbContextAndUnityOfWork();
 
             builder.Services.ConfigPersonsDI();
             var app = builder.Build();

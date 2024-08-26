@@ -1,5 +1,7 @@
-﻿using Castle.Core.Configuration;
+﻿
+using Castle.Core.Configuration;
 using ConnectionService;
+using Generic.Entity;
 using Generic.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -30,7 +32,8 @@ namespace App.Infrastructure
         {
             optionsBuilder
                 .UseSqlServer(_connectionService.GetRelationString())
-                .UseLazyLoadingProxies().LogTo(Console.WriteLine, LogLevel.Information)
+                //.UseLazyLoadingProxies()
+                .LogTo(Console.WriteLine, LogLevel.Information)
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors();
         }

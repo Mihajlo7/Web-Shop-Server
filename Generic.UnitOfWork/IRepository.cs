@@ -7,12 +7,12 @@ using Generic.Entity;
 
 namespace Generic.UnitOfWork
 {
-    public interface IRepository : IDatabase
+    public interface IRepository<TEntity> : IDatabase where TEntity : Entity.Entity
     {
-        TEntity Add <TEntity>(TEntity entity) where TEntity: Entity.Entity;
-        TEntity Update <TEntity>(TEntity entity) where TEntity: Entity.Entity;
-        void Delete<TEntity>(TEntity entity) where TEntity : Entity.Entity;
+        TEntity Add (TEntity entity);
+        TEntity Update (TEntity entity);
+        void Delete(TEntity entity) ;
 
-        IQueryable<TEntity> GetEntitySet<TEntity>() where TEntity : Entity.Entity;
+        IQueryable<TEntity> GetEntitySet();
     }
 }

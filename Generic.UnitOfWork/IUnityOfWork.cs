@@ -9,5 +9,7 @@ namespace Generic.UnitOfWork
     public interface IUnityOfWork
     {
         void SaveChangesAsync(CancellationToken cancellationToken=default);
+        void Dispose();
+        IRepository<TEntity> GetRepository<TEntity>() where TEntity: Entity.Entity;
     }
 }
